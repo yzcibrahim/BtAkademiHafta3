@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\05_Tipler\05_Tipler.csproj" />
+    <ProjectReference Include="..\07_CommonOps\07_CommonOps.csproj" />
   </ItemGroup>
 
 </Project>
