@@ -10,17 +10,13 @@ namespace _04_KisiTakip
         
         static void Main(string[] args)
         {
-            KisiCls k = new KisiCls();
-            KisiCls k1 = new KisiCls();
-            KisiCls k2 = new KisiCls();
-
-           
+            
             List<KisiCls> kisiler = new List<KisiCls>();
             while (true)
             {
                 Console.WriteLine("Yeni Kişi Eklemek için E, yazdırmak için Y, Kişi silmek için S giriniz");
                 string islem = Console.ReadLine();
-                if (islem == "E")
+                if (islem.ToUpper() == "E")
                 {
                     KisiEkle(kisiler);
                 }
@@ -50,6 +46,7 @@ namespace _04_KisiTakip
                     if (secim == "E")
                     {
                         silinecekKisi = kisi;
+                        break;
                     }
                     else
                         return;
@@ -64,7 +61,8 @@ namespace _04_KisiTakip
         {
             foreach (KisiCls item in liste)
             { //break;continue
-                Console.WriteLine($"{item.Id} {item.Ad} {item.Soyad} {item.Yas} {item.Cinsiyet}");
+              //   Console.WriteLine($"{item.Id} {item.Ad} {item.Soyad} {item.Yas} {item.Cinsiyet}");
+                Console.WriteLine(item.Yazdir());
             }
 
             //for (int i = 0; i < liste.Count; i++)
@@ -74,9 +72,9 @@ namespace _04_KisiTakip
         }
         static void KisiEkle(List<KisiCls> liste)
         {
-           
+
             KisiCls eklenecekKisi = new KisiCls();
-           
+
             Console.WriteLine("Kişinin adını giriniz:");
             eklenecekKisi.Ad = Console.ReadLine();
 
@@ -94,6 +92,21 @@ namespace _04_KisiTakip
                 eklenecekKisi.Cinsiyet = CinsiyetEnum.Kadın;
             else
                 eklenecekKisi.Cinsiyet = CinsiyetEnum.BelirtmekIstemiyor;
+            //Console.WriteLine("Kişinin Adını Soyadını yaşını ve cinsiyetini aralarda boşluk olarak giriniz. Erkek için E kadın için K");
+            //string girilenDeger = Console.ReadLine();
+            //string[] degerlerDizi = girilenDeger.Split(" ");
+            //CinsiyetEnum cnsEnum=CinsiyetEnum.BelirtmekIstemiyor;
+            //if(degerlerDizi[3]=="E")
+            //{
+            //    cnsEnum = CinsiyetEnum.Erkek;
+            //}
+            //else if(degerlerDizi[3] == "K")
+            //{
+            //    cnsEnum = CinsiyetEnum.Kadın;
+            //}
+
+            //int yas = Convert.ToInt32(degerlerDizi[2]);
+            //KisiCls eklenecekKisi = new KisiCls(degerlerDizi[0], degerlerDizi[1], cnsEnum, yas);
 
             liste.Add(eklenecekKisi);
         }

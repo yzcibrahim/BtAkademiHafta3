@@ -6,7 +6,7 @@ namespace _03_refValueTypes
     {
         static void Main(string[] args)
         {
-            //valueType
+          //  valueType
             int a = 5;
             int b = a;
             Console.WriteLine($"a={a} b={b}");

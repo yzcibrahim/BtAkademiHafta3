@@ -15,17 +15,31 @@ namespace _05_Tipler
             Id = count + 1;
             count++;
         }
+        public KisiCls(string ad, string soyad, CinsiyetEnum cinsiyet,int yas )
+        {
+            Id = count + 1;
+            count++;
+            Ad = ad;
+            Soyad = soyad;
+            Cinsiyet = cinsiyet;
+            Yas = yas;
+        }
         public string Ad { get; set; }
         public string Soyad { get; set; }
         public CinsiyetEnum Cinsiyet { get; set; }
         public int Yas { get; set; }
 
+        public string Yazdir()
+        {
+            return $"{Id} {Ad} {Soyad} {Yas} {Cinsiyet}";
+        }
+
     }
 
     public enum CinsiyetEnum
     {
-        Kadın = 0,
-        Erkek = 1,
-        BelirtmekIstemiyor = 2
+        Kadın,
+        Erkek,
+        BelirtmekIstemiyor
     }
 }

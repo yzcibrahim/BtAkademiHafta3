@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32002.261
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_Odevler", "01_Odevler\01_Odevler.csproj", "{BC15FA14-9171-4CC9-A912-259779D9BD8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01_Odevler", "01_Odevler\01_Odevler.csproj", "{BC15FA14-9171-4CC9-A912-259779D9BD8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_GenericListClass", "02_GenericListClass\02_GenericListClass.csproj", "{1633395F-0862-4514-9EE4-3248B6CB819A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02_GenericListClass", "02_GenericListClass\02_GenericListClass.csproj", "{1633395F-0862-4514-9EE4-3248B6CB819A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03_refValueTypes", "03_refValueTypes\03_refValueTypes.csproj", "{3B27090E-70FA-4848-A201-ADC7135096BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03_refValueTypes", "03_refValueTypes\03_refValueTypes.csproj", "{3B27090E-70FA-4848-A201-ADC7135096BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04_KisiTakip", "04_KisiTakip\04_KisiTakip.csproj", "{61F3736A-487F-45F1-8721-999970AB1A61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "04_KisiTakip", "04_KisiTakip\04_KisiTakip.csproj", "{61F3736A-487F-45F1-8721-999970AB1A61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05_Tipler", "05_Tipler\05_Tipler.csproj", "{78F8F489-39A7-4956-81BB-38EF440C35CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "05_Tipler", "05_Tipler\05_Tipler.csproj", "{78F8F489-39A7-4956-81BB-38EF440C35CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06_Exception", "06_Exception\06_Exception.csproj", "{9B145EF9-F7C7-4BE5-839B-79AF2256E731}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{78F8F489-39A7-4956-81BB-38EF440C35CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78F8F489-39A7-4956-81BB-38EF440C35CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78F8F489-39A7-4956-81BB-38EF440C35CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B145EF9-F7C7-4BE5-839B-79AF2256E731}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B145EF9-F7C7-4BE5-839B-79AF2256E731}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B145EF9-F7C7-4BE5-839B-79AF2256E731}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B145EF9-F7C7-4BE5-839B-79AF2256E731}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
