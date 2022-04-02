@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-
+using System.Text.Json;
 
 namespace _04_KisiTakip
 {
@@ -19,9 +19,14 @@ namespace _04_KisiTakip
             List<KisiCls> kisiler = new List<KisiCls>();
             kisiler = _repository.KisileriOku();
 
+           string seriStr= JsonSerializer.Serialize(kisiler);
+
+            var liste = JsonSerializer.Deserialize<List<KisiCls>>(seriStr);
+
             while (true)
             {
-                Console.WriteLine("Yeni Kişi Eklemek için E, yazdırmak için Y, filtreleme yapamk için F, Kişi silmek için S giriniz");
+                Console.WriteLine(@"Yeni Kişi Eklemek için E, yazdırmak için Y, filtreleme yapamk için F, Kişi silmek için S, " +
+                    "Yaş ve cinsiyete göre filtrelemek için YC giriniz");
                 string islem = Console.ReadLine();
                 if (islem.ToUpper() == "E")
                 {
@@ -39,10 +44,51 @@ namespace _04_KisiTakip
                 {
                     Filtrele(kisiler);
                 }
+                else if (islem == "YC")
+                {
+                    FiltreleYC(kisiler);
+                }
             }
 
         }
 
+        static void FiltreleYC(List<KisiCls> liste)
+        {
+
+            //yaşı 23 olan erkekler
+            //var filtrelenmisListe = liste.Where(c => c.Cinsiyet == CinsiyetEnum.Erkek && c.Yas == 23).ToList();
+            //KisileriYazdir(filtrelenmisListe);
+
+            //23 yaşında kaç kişi var
+            var kacKisiVar = liste.Count(c => c.Yas == 23);
+            Console.WriteLine(kacKisiVar);
+
+            //adı E ile başlayanlar
+            var baslayanlar = liste.Where(c => c.Ad.ToUpper().StartsWith("E")).ToList();
+            KisileriYazdir(baslayanlar);
+
+            //kaç farklı isim var
+            var Isimler = liste.Select(c => c.Ad).ToList();
+            var uniqisimler = liste.Select(c => c.Ad).Distinct().ToList();
+
+
+            List<string> isimler1 = liste.Where(c => c.Yas > 30).Select(x => x.Ad).ToList();
+
+            List<string> isimler = (from k in liste
+                                    where k.Yas > 30
+                                    select k.Ad).ToList();
+                                 
+
+
+            #region first single default farkları
+
+            //var kisiF = liste.First(c=>c.Yas==30);
+            //var kisiFd = liste.FirstOrDefault(c => c.Yas == 99);
+
+            //var kisiS = liste.Single(c => c.Yas == 30);
+            //var kisiSd = liste.SingleOrDefault(c => c.Yas == 99);
+            #endregion
+        }
         static void Filtrele(List<KisiCls> liste)
         {
             Console.WriteLine("Aranacak kelimeyi giriniz:");
