@@ -17,5 +17,12 @@ namespace _07_CommonOps
                 }
             }
         }
+
+        //public string ToJsonString(KisiCls kisi)
+        //{
+
+
+        //    return "";
+        //}
     }
 }

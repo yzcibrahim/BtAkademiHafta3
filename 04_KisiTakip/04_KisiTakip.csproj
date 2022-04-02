@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\05_Tipler\05_Tipler.csproj" />
     <ProjectReference Include="..\07_CommonOps\07_CommonOps.csproj" />
+    <ProjectReference Include="..\08_DosyaRepository\08_DosyaRepository.csproj" />
   </ItemGroup>
 
 </Project>

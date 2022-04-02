@@ -1,7 +1,9 @@
 ﻿using _05_Tipler;
 using _07_CommonOps;
+using _08_DosyaRepository;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 
@@ -9,11 +11,14 @@ namespace _04_KisiTakip
 {
     class Program
     {
-        
+       static TxtRepository _repository;
         static void Main(string[] args)
         {
-           
+            _repository = new TxtRepository();
+
             List<KisiCls> kisiler = new List<KisiCls>();
+            kisiler = _repository.KisileriOku();
+
             while (true)
             {
                 Console.WriteLine("Yeni Kişi Eklemek için E, yazdırmak için Y, filtreleme yapamk için F, Kişi silmek için S giriniz");
@@ -28,7 +33,7 @@ namespace _04_KisiTakip
                 }
                 else if (islem == "S")
                 {
-                    KisiSil(kisiler);
+                    kisiler= KisiSil(kisiler);
                 }
                 else if (islem == "F")
                 {
@@ -56,15 +61,14 @@ namespace _04_KisiTakip
 
         }
 
-        static void KisiSil(List<KisiCls> pListe)
+        static List<KisiCls> KisiSil(List<KisiCls> pListe)
         {
             //Console.WriteLine("Silinecek id giriniz:");
             //int silinecekId = Convert.ToInt32(Console.ReadLine());
             int silinecekId = Operations.IntOku("Silinecek Id giriniz");
             KisiCls silinecekKisi = new KisiCls();
 
-            // silinecekKisi = pListe.Where(c => c.Id == silinecekId).First();
-            silinecekKisi = pListe.First(x=>x.Id== silinecekId);
+            #region
             //foreach (KisiCls kisi in pListe)
             //{
             //    if (kisi.Id == silinecekId)
@@ -81,8 +85,15 @@ namespace _04_KisiTakip
 
             //    }
             //}
+            // silinecekKisi = pListe.Where(c => c.Id == silinecekId).First();
+            //silinecekKisi = pListe.First(x=>x.Id== silinecekId);
+            //pListe.Remove(silinecekKisi);
+            #endregion
+            pListe = pListe.Where(c => c.Id != silinecekId).ToList();
 
-            pListe.Remove(silinecekKisi);
+            _repository.DosyayaKaydet(pListe);
+            
+            return pListe;
 
         }
         static void KisileriYazdir(List<KisiCls> liste)
@@ -121,6 +132,7 @@ namespace _04_KisiTakip
                 eklenecekKisi.Cinsiyet = CinsiyetEnum.Kadın;
             else
                 eklenecekKisi.Cinsiyet = CinsiyetEnum.BelirtmekIstemiyor;
+            #region alternate
             //Console.WriteLine("Kişinin Adını Soyadını yaşını ve cinsiyetini aralarda boşluk olarak giriniz. Erkek için E kadın için K");
             //string girilenDeger = Console.ReadLine();
             //string[] degerlerDizi = girilenDeger.Split(" ");
@@ -136,9 +148,13 @@ namespace _04_KisiTakip
 
             //int yas = Convert.ToInt32(degerlerDizi[2]);
             //KisiCls eklenecekKisi = new KisiCls(degerlerDizi[0], degerlerDizi[1], cnsEnum, yas);
-
+            #endregion
             liste.Add(eklenecekKisi);
+            
+            _repository.DosyayaKaydet(liste);
+
         }
+
 
     }
 }

@@ -8,7 +8,7 @@ namespace _05_Tipler
 {
     public class KisiCls
     {
-        static int count = 0;
+        public static int count = 0;
         public int Id { get; set; } = 0;
         public KisiCls()
         {
