@@ -14,6 +14,10 @@ namespace _08_DosyaRepository
         public List<KisiCls> Get()
         {
             string kisilerJson = File.ReadAllText("Kisiler.json");
+            if (String.IsNullOrEmpty(kisilerJson))
+            {
+                return new List<KisiCls>();
+            }
             return JsonSerializer.Deserialize<List<KisiCls>>(kisilerJson);
         }
 
@@ -26,6 +30,16 @@ namespace _08_DosyaRepository
         public void Add(KisiCls kisi)
         {
             List<KisiCls> mevcut = Get();
+
+            try
+            {
+                kisi.Id = mevcut.Max(c => c.Id) + 1;
+            }
+            catch
+            {
+                kisi.Id = 1;
+            }
+
             mevcut.Add(kisi);
 
             Save(mevcut);
@@ -53,7 +67,6 @@ namespace _08_DosyaRepository
             }
 
         }
-
 
         public void Save(List<KisiCls> mevcut)
         {

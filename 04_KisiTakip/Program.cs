@@ -11,22 +11,18 @@ namespace _04_KisiTakip
 {
     class Program
     {
-       static TxtRepository _repository;
+        // static TxtRepository _repository;
+        static JsonRepository _repository;
         static void Main(string[] args)
         {
-            _repository = new TxtRepository();
-
+            // _repository = new TxtRepository();
+            _repository = new JsonRepository();
             List<KisiCls> kisiler = new List<KisiCls>();
-            kisiler = _repository.KisileriOku();
-
-           string seriStr= JsonSerializer.Serialize(kisiler);
-
-            var liste = JsonSerializer.Deserialize<List<KisiCls>>(seriStr);
-
-          
+           
 
             while (true)
             {
+                kisiler = _repository.Get();
                 Console.WriteLine(@"Yeni Kişi Eklemek için E, yazdırmak için Y, filtreleme yapamk için F, Kişi silmek için S, " +
                     "Yaş ve cinsiyete göre filtrelemek için YC giriniz");
                 string islem = Console.ReadLine();
@@ -139,7 +135,7 @@ namespace _04_KisiTakip
             #endregion
             pListe = pListe.Where(c => c.Id != silinecekId).ToList();
 
-            _repository.DosyayaKaydet(pListe);
+            _repository.Delete(silinecekId);
             
             return pListe;
 
@@ -198,8 +194,8 @@ namespace _04_KisiTakip
             //KisiCls eklenecekKisi = new KisiCls(degerlerDizi[0], degerlerDizi[1], cnsEnum, yas);
             #endregion
             liste.Add(eklenecekKisi);
-            
-            _repository.DosyayaKaydet(liste);
+
+            _repository.Add(eklenecekKisi);
 
         }
 

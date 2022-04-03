@@ -12,12 +12,12 @@ namespace _05_Tipler
         public int Id { get; set; } = 0;
         public KisiCls()
         {
-            Id = count + 1;
+          //  Id = count + 1;
             count++;
         }
         public KisiCls(string ad, string soyad, CinsiyetEnum cinsiyet,int yas )
         {
-            Id = count + 1;
+          //  Id = count + 1;
             count++;
             Ad = ad;
             Soyad = soyad;
