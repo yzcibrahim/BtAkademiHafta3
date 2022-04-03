@@ -23,6 +23,8 @@ namespace _04_KisiTakip
 
             var liste = JsonSerializer.Deserialize<List<KisiCls>>(seriStr);
 
+          
+
             while (true)
             {
                 Console.WriteLine(@"Yeni Kişi Eklemek için E, yazdırmak için Y, filtreleme yapamk için F, Kişi silmek için S, " +
